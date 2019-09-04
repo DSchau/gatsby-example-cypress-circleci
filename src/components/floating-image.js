@@ -26,6 +26,7 @@ const FloatingImage = ({
   imageMobile,
   imageDesktop,
   backgroundColor,
+  ...rest
 }) => (
   <React.Fragment>
     {/*
@@ -50,6 +51,7 @@ const FloatingImage = ({
       ]}
       backgroundColor={backgroundColor ? backgroundColor : false}
       alt={alt}
+      {...rest}
     />
   </React.Fragment>
 )

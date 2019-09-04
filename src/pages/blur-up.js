@@ -13,12 +13,13 @@ const BlurUp = ({ data, location }) => (
     imageAlt={`“${data.coverImage.title}” by ${data.coverImage.credit} (via unsplash.com)`}
   >
     <PageTitle>Blur Up</PageTitle>
-    <FloatingImage
-      imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
-      imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
-      alt={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
-    />
-
+    <span data-testid="image-fixed">
+      <FloatingImage
+        imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
+        imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
+        alt={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
+      />
+    </span>
     <p>
       The default Blur Up technique uses progressive loading to make a fast,
       visually pleasing experience without waiting for a full-resolution image
@@ -40,10 +41,11 @@ const BlurUp = ({ data, location }) => (
       If you don’t want to use the blur-up effect, choose a fragment with{` `}
       <code>noBase64</code> at the end.
     </p>
-    <Img
-      fluid={data.fullWidthImage.localFile.childImageSharp.fluid}
-      alt={`“${data.fullWidthImage.title}” by ${data.fullWidthImage.credit} (via unsplash.com)`}
-    />
+      
+      <Img
+        fluid={data.fullWidthImage.localFile.childImageSharp.fluid}
+        alt={`“${data.fullWidthImage.title}” by ${data.fullWidthImage.credit} (via unsplash.com)`}
+      />
   </Layout>
 )
 
