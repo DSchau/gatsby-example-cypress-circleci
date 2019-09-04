@@ -86,14 +86,14 @@ const Logo = styled(`img`)`
   width: 100%;
 `
 
-const Layout = ({ children, image, imageTitle, imageBackgroundColor }) => (
+const Layout = ({ children, image, imageAlt, imageBackgroundColor }) => (
   <Container>
     {image && (
       <Image
         fluid={image}
         style={{ position: `fixed` }}
         backgroundColor={imageBackgroundColor ? imageBackgroundColor : false}
-        title={imageTitle}
+        alt={imageAlt}
       />
     )}
     <Navigation />

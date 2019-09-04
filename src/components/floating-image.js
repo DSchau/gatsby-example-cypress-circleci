@@ -22,9 +22,9 @@ const Image = styled(Img)`
 `
 
 const FloatingImage = ({
+  alt,
   imageMobile,
   imageDesktop,
-  title,
   backgroundColor,
 }) => (
   <React.Fragment>
@@ -49,7 +49,7 @@ const FloatingImage = ({
         },
       ]}
       backgroundColor={backgroundColor ? backgroundColor : false}
-      title={title}
+      alt={alt}
     />
   </React.Fragment>
 )

@@ -12,13 +12,13 @@ const TracedSVG = ({ data, location }) => (
   <Layout
     location={location}
     image={data.coverImage.localFile.childImageSharp.fluid}
-    imageTitle={`“${data.coverImage.title}” by ${data.coverImage.credit} (via unsplash.com)`}
+    imageAlt={`“${data.coverImage.title}” by ${data.coverImage.credit} (via unsplash.com)`}
   >
     <PageTitle>Traced SVG Placeholders</PageTitle>
     <FloatingImage
       imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
       imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
-      title={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
+      alt={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
     />
     <p>
       Generates a{` `}
@@ -40,7 +40,7 @@ const TracedSVG = ({ data, location }) => (
     <ImageGallery images={data.galleryImagesCropped.edges} />
     <Img
       fluid={data.fullWidthImage.localFile.childImageSharp.fluid}
-      title={`“${data.fullWidthImage.title}” by ${data.fullWidthImage.credit} (via unsplash.com)`}
+      alt={`“${data.fullWidthImage.title}” by ${data.fullWidthImage.credit} (via unsplash.com)`}
     />
   </Layout>
 )

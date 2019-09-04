@@ -25,7 +25,7 @@ const Index = ({ data, location }) => (
   <Layout
     location={location}
     image={data.coverImage.childImageSharp.fluid}
-    imageTitle={`“Black and silver vintage camera” by Alexander Andrews (via unsplash.com)`}
+    imageAlt={`“Black and silver vintage camera” by Alexander Andrews (via unsplash.com)`}
     imageBackgroundColor={colors.ui.whisper}
   >
     <p>
