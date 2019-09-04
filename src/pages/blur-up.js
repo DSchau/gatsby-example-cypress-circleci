@@ -13,12 +13,11 @@ const BlurUp = ({ data, location }) => (
     imageAlt={`“${data.coverImage.title}” by ${data.coverImage.credit} (via unsplash.com)`}
   >
     <PageTitle>Blur Up</PageTitle>
-    <span data-testid="image-fixed">
-      <FloatingImage
-        imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
-        imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
-      />
-    </span>
+    <FloatingImage
+      imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
+      imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
+      alt={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
+    />
     <p>
       The default Blur Up technique uses progressive loading to make a fast,
       visually pleasing experience without waiting for a full-resolution image

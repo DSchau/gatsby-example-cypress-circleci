@@ -89,12 +89,14 @@ const Logo = styled(`img`)`
 const Layout = ({ children, image, imageAlt, imageBackgroundColor }) => (
   <Container>
     {image && (
-      <Image
-        fluid={image}
-        style={{ position: `fixed` }}
-        backgroundColor={imageBackgroundColor ? imageBackgroundColor : false}
-        alt={imageAlt}
-      />
+      <span data-testid="gatsby-image">
+        <Image
+          fluid={image}
+          style={{ position: `fixed` }}
+          backgroundColor={imageBackgroundColor ? imageBackgroundColor : false}
+          alt={imageAlt}
+        />
+      </span>
     )}
     <Navigation />
     <Main>
