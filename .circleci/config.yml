@@ -1,2 +1,13 @@
-# walk through
-## What an orb is
+version: 2.1
+
+orbs:
+  cypress: cypress-io/cypress@1.9.0
+
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          yarn: true
+          cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
+          start: npm start
+          wait-on: 'http://localhost:8000'
