@@ -17,7 +17,6 @@ const BlurUp = ({ data, location }) => (
       <FloatingImage
         imageMobile={data.floatingImageMobile.localFile.childImageSharp.fixed}
         imageDesktop={data.floatingImage.localFile.childImageSharp.fixed}
-        alt={`“${data.floatingImage.title}” by ${data.floatingImage.credit} (via unsplash.com)`}
       />
     </span>
     <p>
