@@ -1,5 +1,10 @@
 version: 2.1
 
+executors:
+  with-chrome:
+    docker:
+      - image: cypress/browsers:chrome69
+
 orbs:
   cypress: cypress-io/cypress@1.9.0
 
@@ -9,6 +14,7 @@ workflows:
       - cypress/run:
           yarn: true
           cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
+          executor: cypress/browsers-chrome69
           browser: chrome
           record: true
           start: npm start
