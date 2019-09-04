@@ -1,4 +1,4 @@
-const fixedImageId = `image-fixed`
+const imageId = `gatsby-image`
 
 describe(`Production gatsby-image`, () => {
   beforeEach(() => {
@@ -6,46 +6,46 @@ describe(`Production gatsby-image`, () => {
   })
 
   it(`renders an alt tag`, () => {
-    cy.getTestElement(fixedImageId)
-      .find(`picture:eq(1) img`)
+    cy.getTestElement(imageId)
+      .find(`picture img`)
       .should(`have.attr`, `alt`)
-      .and(`contains`, `Pug with hoodie`)
+      .and(`contains`, `Plant with leaves`)
   })
 
   describe(`wrapping elements`, () => {
     describe(`outer div`, () => {
       it(`exists`, () => {
-        cy.getTestElement(fixedImageId)
+        cy.getTestElement(imageId)
           .find(`.gatsby-image-wrapper`)
           .its(`length`)
           .should(`eq`, 1)
       })
 
-      it(`contains position relative`, () => {
-        cy.getTestElement(fixedImageId)
+      it(`contains position fixed`, () => {
+        cy.getTestElement(imageId)
           .find(`.gatsby-image-wrapper`)
           .should(`have.attr`, `style`)
-          .and(`contains`, `position: relative`)
+          .and(`contains`, `position: fixed`)
       })
     })
   })
 
   describe(`fallback image`, () => {
     it(`renders base-64 src`, () => {
-      cy.getTestElement(fixedImageId)
+      cy.getTestElement(imageId)
         .find(`.gatsby-image-wrapper img`)
         .should(`have.attr`, `src`)
         .and(`contains`, `base64`)
     })
 
     it(`renders with style`, () => {
-      cy.getTestElement(fixedImageId)
+      cy.getTestElement(imageId)
         .find(`.gatsby-image-wrapper img`)
         .should(`have.attr`, `style`)
     })
 
     it(`swaps opacity to 0`, () => {
-      cy.getTestElement(fixedImageId)
+      cy.getTestElement(imageId)
         .find(`.gatsby-image-wrapper img`)
         .should(`have.attr`, `style`)
         .and(`contains`, `opacity: 0`)
@@ -53,14 +53,14 @@ describe(`Production gatsby-image`, () => {
   })
 
   it(`renders picture tags`, () => {
-    cy.getTestElement(fixedImageId)
+    cy.getTestElement(imageId)
       .find(`picture`)
       .its(`length`)
-      .should(`eq`, 2)
+      .should(`eq`, 1)
   })
 
   it(`applies inline style to img`, () => {
-    cy.getTestElement(fixedImageId)
+    cy.getTestElement(imageId)
       .find(`picture > img`)
       .should(`have.attr`, `style`)
       .and(style => {
@@ -81,14 +81,14 @@ describe(`Production gatsby-image`, () => {
 
   describe(`noscript`, () => {
     it(`exists`, () => {
-      cy.getTestElement(fixedImageId)
+      cy.getTestElement(imageId)
         .find(`noscript`)
         .its(`length`)
         .should(`eq`, 1)
     })
 
     it(`renders string content with picture tag`, () => {
-      cy.getTestElement(fixedImageId)
+      cy.getTestElement(imageId)
         .find(`noscript`)
         .and(noscript => {
           const content = noscript[0].textContent
